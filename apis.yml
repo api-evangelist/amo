@@ -1,25 +1,73 @@
 aid: amo
+
 name: Amo
-description: 'Amo is a company surfaced via the API Evangelist harvest backlog (source: vc-portfolio;
-  backed by coatue) and added to the network as a stub for full-pipeline profiling.'
+
+image: https://amo.co/og/amo.png
+
+description: Amo is a social networking company focused on fostering friendships through multiple apps. Their flagship apps include ID, a collaborative
+  social profile board, Bump, a map for friends, and Sugar, an unlimited canvas chat. The company believes friendship deserves a dedicated online
+  space and builds tools to bring friends closer together, emphasizing community, shared experiences, and innovative social features.
+
 url: https://raw.githubusercontent.com/api-evangelist/amo/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:vc-portfolio
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-10-25 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-10-25'
+
 modified: '2026-10-25'
+
 tags:
 - Company
-apis: []
+- Social
+- Networking
+- Apps
+- Friendship
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
-x-backed-by:
-- coatue
+
 common:
+- type: WellKnown
+  url: well-known/amo-well-known.yml
+- type: Hosts
+  url: hosts/amo-hosts.yml
+- type: Documentation
+  url: https://docs.amo.co/
+- type: DomainSecurity
+  url: security/amo-domain-security.yml
 - type: Website
   url: https://www.amo.co/
+
+apis:
+- name: Amo API
+  description: Amo provides social networking features across its apps.
+  humanURL: https://amo.co/
+  aid: amo:amo-api
+
+x-backed-by:
+- coatue
+
+x-coverage:
+  state: unreadable
+  reason: js-rendered-docs
+  detail: Home page renders via JavaScript, no machine‑readable API spec discovered.
+  evidence:
+  - url: https://amo.co/
+    status: 200
+  checked: '2026-10-25'
+x-enrichment:
+  date: '2026-10-25'
+  status: enriched
+  artifacts_added: 10
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local
